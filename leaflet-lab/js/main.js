@@ -35,33 +35,40 @@ function onEachFeature(feature, layer) {
     };
 };
 
+function createPropSymbols(data, map){
+  //turning the points into styled markers (can't use L.geojson)
+  //define the style of the markers here
+}
 //function to retrieve the data and place it on the map
 function getData(map){
     //load the data
     $.ajax("data/Books.geojson", {
         dataType: "json",
         success: function(response){
-          //turning the points into styled markers (can't use L.geojson)
-          //define the style of the markers here
-          var geojsonMarkerOptions = {
-                radius: 8,
-                fillColor: "#ff7800",
-                color: "#000",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8
-            };
-
             //create a Leaflet GeoJSON layer and add it to the map
-            L.geoJson(response, {
-              //use point to layer to add the markers to each feature point
-              pointToLayer: function (feature, latlng){
-                    return L.circleMarker(latlng, geojsonMarkerOptions);
-                  }
-            }).addTo(map);
-        }
-    });
-};
+            geojsonLayer = L.geoJson(response, {
+              style: function(feature) {
+                      return {
+                      	color: "green"
+                      };
+                  },
+              pointToLayer: function(feature, latlng) {
+                      return new L.CircleMarker(latlng, {
+                      	radius: 10,
+                      	fillOpacity: 0.85
+                      });
+                  },
+              onEachFeature: function (feature, layer) {
+                      layer.bindPopup(feature.properties.N);
+                      console.log(feature.properties.N);
+                    }
+             })
+        map.addLayer(geojsonLayer);
+          }
+      })
+   };
+
+
 
 $(document).ready(createMap);
 

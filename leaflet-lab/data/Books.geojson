@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0001",
-        "Name ": "Abbotsford Public Library",
+        "N": "Abbotsford Public Library",
         "Print_Books_2017": 21595,
         "Print_Books_2016": 20631,
         "Print_Books_2015": 20689,
@@ -26,7 +26,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0002",
-        "Name ": "Adams County Library",
+        "N": "Adams County Library",
         "Print_Books_2017": 36083,
         "Print_Books_2016": 35526,
         "Print_Books_2015": 35566,
@@ -47,7 +47,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0003",
-        "Name ": "Albertson Memorial Library",
+        "N": "Albertson Memorial Library",
         "Print_Books_2017": 20637,
         "Print_Books_2016": 20450,
         "Print_Books_2015": 20486,
@@ -68,7 +68,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0004",
-        "Name ": "Algoma Public Library",
+        "N": "Algoma Public Library",
         "Print_Books_2017": 27957,
         "Print_Books_2016": 27718,
         "Print_Books_2015": 30637,
@@ -89,7 +89,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0005",
-        "Name ": "Alma Public Library",
+        "N": "Alma Public Library",
         "Print_Books_2017": 11171,
         "Print_Books_2016": 11098,
         "Print_Books_2015": 10729,
@@ -110,7 +110,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0006",
-        "Name ": "Altoona Public Library",
+        "N": "Altoona Public Library",
         "Print_Books_2017": 40883,
         "Print_Books_2016": 39381,
         "Print_Books_2015": 43879,
@@ -131,7 +131,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0007",
-        "Name ": "Amery Public Library",
+        "N": "Amery Public Library",
         "Print_Books_2017": 35234,
         "Print_Books_2016": 38582,
         "Print_Books_2015": 43044,
@@ -152,7 +152,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0008",
-        "Name ": "Lettie W. Jensen Public Library",
+        "N": "Lettie W. Jensen Public Library",
         "Print_Books_2017": 13319,
         "Print_Books_2016": 13091,
         "Print_Books_2015": 13102,
@@ -173,7 +173,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0009",
-        "Name ": "Antigo Public Library",
+        "N": "Antigo Public Library",
         "Print_Books_2017": 47728,
         "Print_Books_2016": 47399,
         "Print_Books_2015": 48793,
@@ -194,7 +194,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0010",
-        "Name ": "Appleton Public Library",
+        "N": "Appleton Public Library",
         "Print_Books_2017": 256938,
         "Print_Books_2016": 267646,
         "Print_Books_2015": 273235,
@@ -215,7 +215,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0011",
-        "Name ": "Arcadia Free Public Library",
+        "N": "Arcadia Free Public Library",
         "Print_Books_2017": 18724,
         "Print_Books_2016": 18365,
         "Print_Books_2015": 18035,
@@ -236,7 +236,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0012",
-        "Name ": "Argyle Public Library",
+        "N": "Argyle Public Library",
         "Print_Books_2017": 4751,
         "Print_Books_2016": 5051,
         "Print_Books_2015": 5185,
@@ -257,7 +257,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0013",
-        "Name ": "Lester Public Library of Arpin",
+        "N": "Lester Public Library of Arpin",
         "Print_Books_2017": 12520,
         "Print_Books_2016": 11512,
         "Print_Books_2015": 10755,
@@ -278,7 +278,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0014",
-        "Name ": "Vaughn Public Library",
+        "N": "Vaughn Public Library",
         "Print_Books_2017": 36006,
         "Print_Books_2016": 36239,
         "Print_Books_2015": 37536,
@@ -299,7 +299,7 @@
       "type": "Feature",
       "properties": {
         "ID": "WI0015",
-        "Name ": "Augusta Memorial Public Library",
+        "N": "Augusta Memorial Public Library",
         "Print_Books_2017": 11388,
         "Print_Books_2016": 11514,
         "Print_Books_2015": 11123,
