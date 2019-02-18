@@ -64,3 +64,7 @@ function getData(map){
 };
 
 $(document).ready(createMap);
+
+//4. Determine which attribute to visualize with proportional symbols
+//5. For each feature, determine its value for the selected attribute
+//6. Give each feature's circle marker a radius based on its attribute value
