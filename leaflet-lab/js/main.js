@@ -71,7 +71,7 @@ function getData(map){
                       });
                   },
               onEachFeature: function(feature, layer) {
-                      layer.bindPopup(feature.properties.N);
+                      layer.bindPopup(feature.properties.N + ", \nbooks: " + feature.properties.Print_Books_2017);
                       //console.log(feature.properties.N);
                     },
               createPropSymbols: function(data) {
