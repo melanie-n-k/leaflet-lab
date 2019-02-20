@@ -18,11 +18,10 @@ function createMap(){
 
     //call getData function
     getData(map);
-    onEachFeature(map);
 };
 
 //function to attach popups to each mapped feature - I can't get this to work
-function onEachFeature(feature, layer) {
+/* function onEachFeature(feature, layer) {
     //we have no property named popupContent; instead, create variable called
     //popupContent, and then html string with all properties
     var popupContent = "";
@@ -33,35 +32,39 @@ function onEachFeature(feature, layer) {
         }
         layer.bindPopup(popupContent);
     };
-};
+}; */
 
-function createPropSymbols(data, map){
-  //turning the points into styled markers (can't use L.geojson)
-  //define the style of the markers here
-}
 //function to retrieve the data and place it on the map
 function getData(map){
     //load the data
     $.ajax("data/Books.geojson", {
         dataType: "json",
         success: function(response){
+          createPropSymbols(response, map);
             //create a Leaflet GeoJSON layer and add it to the map
             geojsonLayer = L.geoJson(response, {
               style: function(feature) {
                       return {
-                      	color: "green"
+                      	color: "orange"
                       };
                   },
               pointToLayer: function(feature, latlng) {
                       return new L.CircleMarker(latlng, {
-                      	radius: 10,
-                      	fillOpacity: 0.85
+                        radius: 8,
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
                       });
                   },
-              onEachFeature: function (feature, layer) {
+              onEachFeature: function(feature, layer) {
                       layer.bindPopup(feature.properties.N);
                       console.log(feature.properties.N);
                     }
+              createPropSymbols: function(data, map) {
+
+              };
              })
         map.addLayer(geojsonLayer);
           }
