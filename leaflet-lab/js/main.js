@@ -40,7 +40,6 @@ function getData(map){
     $.ajax("data/Books.geojson", {
         dataType: "json",
         success: function(response){
-          createPropSymbols(response, map);
             //create a Leaflet GeoJSON layer and add it to the map
             geojsonLayer = L.geoJson(response, {
               style: function(feature) {
@@ -49,8 +48,21 @@ function getData(map){
                       };
                   },
               pointToLayer: function(feature, latlng) {
+                var attribute = "Print_Books_2017";
+                var attValue = Number(feature.properties[attribute]);
+                console.log(calcPropRadius(attValue));
+                function calcPropRadius(attValue) {
+                  //scale factor to adjust symbol size evenly
+                  var scaleFactor = 0.02;
+                  //area based on attribute value and scale factor
+                  var area = attValue * scaleFactor;
+                  //radius calculated based on area
+                  var radius = Math.sqrt(area/Math.PI);
+
+                  return radius;
+                };
                       return new L.CircleMarker(latlng, {
-                        radius: 8,
+                        radius: calcPropRadius(attValue),
                         fillColor: "#ff7800",
                         color: "#000",
                         weight: 1,
@@ -60,11 +72,11 @@ function getData(map){
                   },
               onEachFeature: function(feature, layer) {
                       layer.bindPopup(feature.properties.N);
-                      console.log(feature.properties.N);
-                    }
-              createPropSymbols: function(data, map) {
-
-              };
+                      //console.log(feature.properties.N);
+                    },
+              createPropSymbols: function(data) {
+                var attribute = "Print_Books_2017";
+              }
              })
         map.addLayer(geojsonLayer);
           }
