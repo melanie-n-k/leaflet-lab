@@ -5,7 +5,7 @@
 
 //function to instantiate the Leaflet map
 function createMap(){
-    //create the map
+    //create the map and center it on WI
     var map = L.map('map', {
         center: [45, -88],
         zoom: 7
@@ -20,20 +20,6 @@ function createMap(){
     getData(map);
 };
 
-//function to attach popups to each mapped feature - I can't get this to work
-/* function onEachFeature(feature, layer) {
-    //we have no property named popupContent; instead, create variable called
-    //popupContent, and then html string with all properties
-    var popupContent = "";
-    if (feature.properties) {
-        //loop to add feature property names and values to html string
-        for (var property in feature.properties){
-            popupContent += "<p>" + property + ": " + feature.properties[property] + "</p>";
-        }
-        layer.bindPopup(popupContent);
-    };
-}; */
-
 //function to retrieve the data and place it on the map
 function getData(map){
     //load the data
@@ -47,6 +33,7 @@ function getData(map){
                       	color: "orange"
                       };
                   },
+              //function to calculate radius size for symbols
               pointToLayer: function(feature, latlng) {
                 var attribute = "Print_Books_2017";
                 var attValue = Number(feature.properties[attribute]);
@@ -61,6 +48,7 @@ function getData(map){
 
                   return radius;
                 };
+                //use return to generate proportional symbols
                       return new L.CircleMarker(latlng, {
                         radius: calcPropRadius(attValue),
                         fillColor: "#ff7800",
@@ -70,9 +58,14 @@ function getData(map){
                         fillOpacity: 0.8
                       });
                   },
+              //function to add popups to proportional symbols
               onEachFeature: function(feature, layer) {
-                      layer.bindPopup(feature.properties.N + ", \nbooks: " + feature.properties.Print_Books_2017);
-                      //console.log(feature.properties.N);
+                      /* var list = "<dl><dt></dt>"
+                      + "<dd>" + feature.properties.N + "</dd>"
+                      + "<dt> Print Books in 2017: </dt>"
+                      + "<dd>" + feature.properties.Print_Books_2017 + "</dd>"
+                      layer.bindPopup(list); */
+                      layer.bindPopup(feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + " print books in 2017");
                     },
               createPropSymbols: function(data) {
                 var attribute = "Print_Books_2017";
