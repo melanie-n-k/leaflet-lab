@@ -19,6 +19,39 @@ function createMap(){
     //call getData function
     getData(map);
 };
+function createSequenceControls(map){
+    //create range input element (slider)
+    $('#panel').append('<input class="range-slider" type="range">');
+    $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
+    $('#panel').append('<button class="skip" id="forward">Skip</button>');
+    //Below Example 3.5...replace button content with images
+    $('#reverse').html('<img src="img/reverse.png">');
+    $('#forward').html('<img src="img/forward.png">');
+    //set slider attributes
+    $('.range-slider').attr({
+        max: 6,
+        min: 0,
+        value: 0,
+        step: 1
+    });
+  };
+//build an attributes array from the data
+function processData(data){
+    //empty array to hold attributes
+    var attributes = [];
+    //properties of the first feature in the dataset
+    var properties = data.features[0].properties;
+    //push each attribute name into attributes array
+    for (var attribute in properties){
+        //only take attributes with population values
+        if (attribute.indexOf("Print") > -1){
+            attributes.push(attribute);
+        };
+    };
+    //check result
+    console.log(attributes);
+    return attributes;
+};
 
 //function to retrieve the data and place it on the map
 function getData(map){
@@ -26,18 +59,20 @@ function getData(map){
     $.ajax("data/Books.geojson", {
         dataType: "json",
         success: function(response){
+            var attributes = processData(response);
+            createSequenceControls(map, attributes);
             //create a Leaflet GeoJSON layer and add it to the map
             geojsonLayer = L.geoJson(response, {
               style: function(feature) {
                       return {
-                      	color: "orange"
+                      	//color: "white"
                       };
                   },
               //function to calculate radius size for symbols
               pointToLayer: function(feature, latlng) {
                 var attribute = "Print_Books_2017";
                 var attValue = Number(feature.properties[attribute]);
-                console.log(calcPropRadius(attValue));
+                //console.log(calcPropRadius(attValue));
                 function calcPropRadius(attValue) {
                   //scale factor to adjust symbol size evenly
                   var scaleFactor = 0.02;
@@ -51,11 +86,11 @@ function getData(map){
                 //use return to generate proportional symbols
                       return new L.CircleMarker(latlng, {
                         radius: calcPropRadius(attValue),
-                        fillColor: "#ff7800",
-                        color: "#000",
-                        weight: 1,
+                        fillColor: "#FA7268",
+                        color: "#FA7268",
+                        weight: 1.5,
                         opacity: 1,
-                        fillOpacity: 0.8
+                        fillOpacity: 0.75
                       });
                   },
               //function to add popups to proportional symbols
@@ -65,11 +100,9 @@ function getData(map){
                       + "<dt> Print Books in 2017: </dt>"
                       + "<dd>" + feature.properties.Print_Books_2017 + "</dd>"
                       layer.bindPopup(list); */
+                      //console.log("hello");
                       layer.bindPopup("<b>" + feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + "</b>" + " print books in 2017");
                     },
-              createPropSymbols: function(data) {
-                var attribute = "Print_Books_2017";
-              }
              })
         map.addLayer(geojsonLayer);
           }

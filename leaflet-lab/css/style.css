@@ -1,8 +1,32 @@
 /* stylesheet by mkohls */
-/* for Module 4 */
+/* leaflet map */
 
 #map { height: 700px; }
 
 .leaflet-popup-content p {
     width: 200px;
+}
+
+#panel {
+  position: relative;
+    width: 40%;
+    padding: 10px;
+    left: 200px;
+    display: inline-block;
+    vertical-align: center;
+    text-align: center;
+}
+
+.range-slider {
+  width: 60%;
+  vertical-align: center;
+  text-align: center;
+}
+
+#forward {
+    float: right;
+}
+
+#reverse {
+    float: left;
 }
