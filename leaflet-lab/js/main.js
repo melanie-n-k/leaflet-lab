@@ -65,7 +65,7 @@ function getData(map){
                       + "<dt> Print Books in 2017: </dt>"
                       + "<dd>" + feature.properties.Print_Books_2017 + "</dd>"
                       layer.bindPopup(list); */
-                      layer.bindPopup(feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + " print books in 2017");
+                      layer.bindPopup("<b>" + feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + "</b>" + " print books in 2017");
                     },
               createPropSymbols: function(data) {
                 var attribute = "Print_Books_2017";

@@ -2,3 +2,7 @@
 /* for Module 4 */
 
 #map { height: 700px; }
+
+.leaflet-popup-content p {
+    width: 200px;
+}
