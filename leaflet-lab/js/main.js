@@ -115,13 +115,10 @@ function getData(map){
                   },
               //function to add popups to proportional symbols
               onEachFeature: function(feature, layer) {
-                      /* var list = "<dl><dt></dt>"
-                      + "<dd>" + feature.properties.N + "</dd>"
-                      + "<dt> Print Books in 2017: </dt>"
-                      + "<dd>" + feature.properties.Print_Books_2017 + "</dd>"
-                      layer.bindPopup(list); */
-                      //console.log("hello");
-                      layer.bindPopup("<b>" + feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + "</b>" + " print books in 2017");
+                      var attArray = processData(response);
+                      var attribute = attArray[0];
+                      var year = attribute.split("_")[2];
+                      layer.bindPopup("<b>" + feature.properties.N + "<br>" + feature.properties.Print_Books_2017 + "</b>" + " print books in " + year);
                     },
              })
         map.addLayer(geojsonLayer);
