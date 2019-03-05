@@ -1,0 +1,230 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0001",
+        "Name ": "Abbotsford Public Library",
+        "Municipal_Pop": 2276
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.32,
+          44.947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0002",
+        "Name ": "Adams County Library",
+        "Municipal_Pop": 18036
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.822,
+          43.966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0003",
+        "Name ": "Albertson Memorial Library",
+        "Municipal_Pop": 2133
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.439,
+          42.71
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0004",
+        "Name ": "Algoma Public Library",
+        "Municipal_Pop": 3126
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.439,
+          44.606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0005",
+        "Name ": "Alma Public Library",
+        "Municipal_Pop": 781
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.918,
+          44.325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0006",
+        "Name ": "Altoona Public Library",
+        "Municipal_Pop": 7420
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.433,
+          44.806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0007",
+        "Name ": "Amery Public Library",
+        "Municipal_Pop": 2903
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.366,
+          45.303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0008",
+        "Name ": "Lettie W. Jensen Public Library",
+        "Municipal_Pop": 1055
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.284,
+          44.454
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0009",
+        "Name ": "Antigo Public Library",
+        "Municipal_Pop": 20072
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.154,
+          45.141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0010",
+        "Name ": "Appleton Public Library",
+        "Municipal_Pop": 74598
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.407,
+          44.264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0011",
+        "Name ": "Arcadia Free Public Library",
+        "Municipal_Pop": 3072
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.496,
+          44.252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0012",
+        "Name ": "Argyle Public Library",
+        "Municipal_Pop": 846
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.866,
+          42.702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0013",
+        "Name ": "Lester Public Library of Arpin",
+        "Municipal_Pop": 961
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.046,
+          44.54
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0014",
+        "Name ": "Vaughn Public Library",
+        "Municipal_Pop": 8065
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.888,
+          46.589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": "WI0015",
+        "Name ": "Augusta Memorial Public Library",
+        "Municipal_Pop": 1516
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.12,
+          44.68
+        ]
+      }
+    }
+  ]
+}

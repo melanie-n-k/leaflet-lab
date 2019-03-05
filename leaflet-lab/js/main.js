@@ -2,7 +2,9 @@
 //leaflet lab
 
 /* Map of GeoJSON data from Wisconsin Public Library data */
-
+var newLayer;
+var featureLayer;
+var mapLayer;
 //create slider and skip buttons
 function createSequenceControls(map,attributes){
     //create range input element (slider)
@@ -82,17 +84,17 @@ function pointToLayer(feature, latlng, attributes){
 	};
 	var attValue = Number(feature.properties[attribute]);
 	geojsonMarkerOptions.radius = calcPropRadius(attValue);
-	var layer = L.circleMarker(latlng, geojsonMarkerOptions);
+	featureLayer = L.circleMarker(latlng, geojsonMarkerOptions);
 	//build popup content string
 	var popupContent = "<p><b>" + feature.properties.N + ": </b></p>";
 	//add formatted attribute to popup content
 	var year = attribute.split("_")[2];
 	popupContent += "<p><b>" + feature.properties[attribute] +"</b> print books in " + year + "</p>";
 	//bind the popup to the circle marker
-    layer.bindPopup(popupContent, {
+    featureLayer.bindPopup(popupContent, {
 		offset: new L.point(0, -geojsonMarkerOptions.radius)
 	});
-	return layer
+	return featureLayer;
 };
 
 //create array to hold index values for attributes
@@ -120,7 +122,7 @@ function createPropSymbols(data, map, attributes){
 	}).addTo(map);
 };
 
-//function to get that data
+//function to get the data
 function getData(map){
     //load the data
     $.ajax("data/Books.geojson", {
@@ -131,6 +133,49 @@ function getData(map){
 			createPropSymbols(response, map, attributes);
 			createSequenceControls(map,attributes);
 		}
+    });
+};
+
+//load second layer of data
+function getNextLayer(map){
+    //load the data
+    $.ajax("data/population.geojson", {
+        dataType: "json",
+        success: function(response){
+          newLayer = L.geoJson(response, {
+              pointLayer: function(feature, latlng) {
+                var attribute = "Municipal_Pop";
+                var attValue = Number(feature.properties[attribute]);
+                console.log(calcPropRadius(attValue));
+                function calcPropRadius(attValue) {
+                  //scale factor to adjust symbol size evenly
+                  var scaleFactor = 0.02;
+                  //area based on attribute value and scale factor
+                  var area = attValue * scaleFactor;
+                  //radius calculated based on area
+                  var radius = Math.sqrt(area/Math.PI);
+
+                  return radius;
+                };
+                      return new L.CircleMarker(latlng, {
+                        radius: calcPropRadius(attValue),
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                      });
+                  },
+              onEachFeature: function(feature, layer) {
+                      layer.bindPopup("\nPopulation: " + "<b>" + feature.properties.Municipal_Pop + "</b>");
+                      //console.log(feature.properties.N);
+                    },
+              createPropSymbols: function(data) {
+                var attribute = "Municipal_Pop";
+              }
+            }).addTo(map);
+          controlLayers(map);
+		 }
     });
 };
 
@@ -153,12 +198,26 @@ function createMap(){
         zoom: 7
     });
     //add OSM base tilelayer
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    mapLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
     }).addTo(map);
     //call getData function to add data to the map
     getData(map);
+    getNextLayer(map);
+
 };
 
+function controlLayers(map){
+    var overlayMaps = {
+    "Population": newLayer,
+    //"Books": featureLayer
+  };
+  var baseMaps = {
+    "Grayscale": mapLayer
+  };
+  //console.log(newLayer);
+  //console.log(featureLayer);
+  L.control.layers(null, overlayMaps).addTo(map);
+};
 //creates the entire map once the page is loaded
 $(document).ready(createMap);
