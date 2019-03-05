@@ -22,11 +22,33 @@ function createMap(){
 function createSequenceControls(map){
     //create range input element (slider)
     $('#panel').append('<input class="range-slider" type="range">');
+    //listener for slider
+    $('.range-slider').on('input', function(){
+      var index = $(this).val();
+      //console.log(index);
+});
     $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
     $('#panel').append('<button class="skip" id="forward">Skip</button>');
     //Below Example 3.5...replace button content with images
     $('#reverse').html('<img src="img/reverse.png">');
     $('#forward').html('<img src="img/forward.png">');
+    //click listener for buttons
+    $('.skip').click(function(){
+      //get the old index value
+      var index = $('.range-slider').val();
+      //increment or decrement depending on button clicked
+      if ($(this).attr('id') == 'forward'){
+          index++;
+          //if past the last attribute, wrap around to first attribute
+          index = index > 6 ? 0 : index;
+      } else if ($(this).attr('id') == 'reverse'){
+          index--;
+          //if past the first attribute, wrap around to last attribute
+          index = index < 0 ? 6 : index;
+      };
+      //update slider
+      $('.range-slider').val(index);
+});
     //set slider attributes
     $('.range-slider').attr({
         max: 6,
