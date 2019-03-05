@@ -142,6 +142,7 @@ function getNextLayer(map){
     $.ajax("data/population.geojson", {
         dataType: "json",
         success: function(response){
+          //reapply proportional symbol functions to new layer 
           newLayer = L.geoJson(response, {
               pointLayer: function(feature, latlng) {
                 var attribute = "Municipal_Pop";
@@ -178,7 +179,6 @@ function getNextLayer(map){
 		 }
     });
 };
-
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
