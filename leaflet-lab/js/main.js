@@ -38,19 +38,19 @@ function createSequenceControls(map){
 //build an attributes array from the data
 function processData(data){
     //empty array to hold attributes
-    var attributes = [];
+    var attArray = [];
     //properties of the first feature in the dataset
     var properties = data.features[0].properties;
     //push each attribute name into attributes array
     for (var attribute in properties){
         //only take attributes with population values
         if (attribute.indexOf("Print") > -1){
-            attributes.push(attribute);
+            attArray.push(attribute);
         };
     };
     //check result
-    console.log(attributes);
-    return attributes;
+    //console.log(attArray);
+    return attArray;
 };
 
 //function to retrieve the data and place it on the map
@@ -59,18 +59,16 @@ function getData(map){
     $.ajax("data/Books.geojson", {
         dataType: "json",
         success: function(response){
-            var attributes = processData(response);
-            createSequenceControls(map, attributes);
+            var attArray = processData(response);
+            //console.log(attArray);
+            createSequenceControls(map, attArray);
             //create a Leaflet GeoJSON layer and add it to the map
             geojsonLayer = L.geoJson(response, {
-              style: function(feature) {
-                      return {
-                      	//color: "white"
-                      };
-                  },
               //function to calculate radius size for symbols
-              pointToLayer: function(feature, latlng) {
-                var attribute = "Print_Books_2017";
+              pointToLayer: function(feature, latlng, attArray) {
+                var attArray = processData(response);
+                var attribute = attArray[0];
+                //console.log(attribute);
                 var attValue = Number(feature.properties[attribute]);
                 //console.log(calcPropRadius(attValue));
                 function calcPropRadius(attValue) {
@@ -112,7 +110,3 @@ function getData(map){
 
 
 $(document).ready(createMap);
-
-//4. Determine which attribute to visualize with proportional symbols
-//5. For each feature, determine its value for the selected attribute
-//6. Give each feature's circle marker a radius based on its attribute value
