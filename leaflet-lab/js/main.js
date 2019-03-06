@@ -11,7 +11,7 @@ function createSequenceControls(map,attributes){
     $('#panel').append('<input class="range-slider" type="range">');
 	//set slider attributes
 	$('.range-slider').attr({
-		max: 8,
+		max: 6,
 		min: 0,
 		value: 0,
 		step: 1
@@ -36,11 +36,11 @@ function createSequenceControls(map,attributes){
         if ($(this).attr('id') == 'forward'){
             index++;
             //if past the last attribute, wrap around to first attribute
-            index = index > 8 ? 0 : index;
+            index = index > 6 ? 0 : index;
         } else if ($(this).attr('id') == 'reverse'){
             index--;
             //if past the first attribute, wrap around to last attribute
-            index = index < 0 ? 8 : index;
+            index = index < 0 ? 6 : index;
         };
         //update slider
         $('.range-slider').val(index);
@@ -146,7 +146,7 @@ function getNextLayer(map){
           //reapply proportional symbol functions to new layer
           newLayer = L.geoJson(response, {
               onEachFeature: function(feature, layer) {
-                      layer.bindPopup("\nPopulation: " + "<b>" + feature.properties.Municipal_Pop + "</b>");
+                      layer.bindPopup("municipal population, 2017: " + "<b>" + feature.properties.Municipal_Pop + "</b>");
                     },
               pointToLayer: function(feature, latlng){
                 return pointLayer(feature,latlng,attributes);
@@ -182,14 +182,14 @@ function pointLayer(feature, latlng) {
           color: "#008080",
           weight: 1,
           opacity: 1,
-          fillOpacity: .75
+          fillOpacity: .7
         });
     };
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
-    var scaleFactor = 0.05;
+    var scaleFactor = 0.1;
     //area based on attribute value and scale factor
     var area = attValue * scaleFactor;
     //radius calculated based on area
