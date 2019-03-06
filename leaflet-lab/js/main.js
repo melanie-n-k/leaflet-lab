@@ -142,47 +142,54 @@ function getNextLayer(map){
     $.ajax("data/population.geojson", {
         dataType: "json",
         success: function(response){
-          //reapply proportional symbol functions to new layer 
+          var attributes = processData(response);
+          //reapply proportional symbol functions to new layer
           newLayer = L.geoJson(response, {
-              pointLayer: function(feature, latlng) {
-                var attribute = "Municipal_Pop";
-                var attValue = Number(feature.properties[attribute]);
-                console.log(calcPropRadius(attValue));
-                function calcPropRadius(attValue) {
-                  //scale factor to adjust symbol size evenly
-                  var scaleFactor = 0.02;
-                  //area based on attribute value and scale factor
-                  var area = attValue * scaleFactor;
-                  //radius calculated based on area
-                  var radius = Math.sqrt(area/Math.PI);
-
-                  return radius;
-                };
-                      return new L.CircleMarker(latlng, {
-                        radius: calcPropRadius(attValue),
-                        fillColor: "#ff7800",
-                        color: "#000",
-                        weight: 1,
-                        opacity: 1,
-                        fillOpacity: 0.8
-                      });
-                  },
               onEachFeature: function(feature, layer) {
                       layer.bindPopup("\nPopulation: " + "<b>" + feature.properties.Municipal_Pop + "</b>");
-                      //console.log(feature.properties.N);
                     },
-              createPropSymbols: function(data) {
-                var attribute = "Municipal_Pop";
-              }
-            }).addTo(map);
+              pointToLayer: function(feature, latlng){
+                return pointLayer(feature,latlng,attributes);
+              }}
+              // createPropSymbols: function(data) {
+              //   var attribute = "Municipal_Pop";
+              //   console.log(attribute);
+              // }
+            ).addTo(map);
+
           controlLayers(map);
 		 }
     });
 };
+function pointLayer(feature, latlng) {
+  var attribute = "Municipal_Pop";
+  console.log(feature.properties);
+  var attValue = Number(feature.properties[attribute]);
+  console.log(calcPropRadius(attValue));
+  function calcPropRadius(attValue) {
+    //scale factor to adjust symbol size evenly
+    var scaleFactor = 0.3;
+    //area based on attribute value and scale factor
+    var area = attValue * scaleFactor;
+    //radius calculated based on area
+    var radius = Math.sqrt(area/Math.PI);
+    console.log(radius);
+    return radius;
+  };
+        return new L.CircleMarker(latlng, {
+          radius: calcPropRadius(attValue),
+          fillColor: "#008080",
+          color: "#008080",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: .75
+        });
+    };
+
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
-    var scaleFactor = 0.02;
+    var scaleFactor = 0.05;
     //area based on attribute value and scale factor
     var area = attValue * scaleFactor;
     //radius calculated based on area
