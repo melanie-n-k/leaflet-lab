@@ -7,21 +7,29 @@ var featureLayer;
 var mapLayer;
 //create slider and skip buttons
 function createSequenceControls(map,attributes){
+  var SequenceControl = L.Control.extend({
+          options: {
+              position: 'bottomleft'
+          },
+
+          onAdd: function (map) {
+              // create the control container div with a particular class name
+    var container = L.DomUtil.create('div', 'sequence-control-container');
     //create range input element (slider)
-    $('#panel').append('<input class="range-slider" type="range">');
-	//set slider attributes
-	$('.range-slider').attr({
-		max: 6,
-		min: 0,
-		value: 0,
-		step: 1
-	})
-	//add skip buttons
-  $('#panel').append('<button class="skip" id="reverse">Reverse</button>');
-  $('#panel').append('<button class="skip" id="forward">Skip</button>');
-  //replace button content with images
-  $('#reverse').html('<img src="img/reverse.png">');
-  $('#forward').html('<img src="img/forward.png">');
+          $(container).append('<input class="range-slider" type="range">');
+      	//set slider attributes
+      	  $('.range-slider').attr({
+      		max: 6,
+      		min: 0,
+      		value: 0,
+      		step: 1
+      	})
+      	//add skip buttons
+        $(container).append('<button class="skip" id="reverse">Reverse</button>');
+        $(container).append('<button class="skip" id="forward">Skip</button>');
+        //replace button content with images
+        $('#reverse').html('<img src="img/reverse.png">');
+        $('#forward').html('<img src="img/forward.png">');
   //listener for slider
   $('.range-slider').on('input', function(){
     var index = $(this).val();
@@ -47,6 +55,12 @@ function createSequenceControls(map,attributes){
 		//update symbols when buttons are clicked
         updatePropSymbols(map, attributes[index]);
     });
+    L.DomEvent.disableClickPropagation(container);
+    return container;
+       }
+   });
+
+   map.addControl(new SequenceControl());
 };
 
 //connect proportional symbols to cycling attribute values
@@ -163,9 +177,9 @@ function getNextLayer(map){
 };
 function pointLayer(feature, latlng) {
   var attribute = "Municipal_Pop";
-  console.log(feature.properties);
+  //console.log(feature.properties);
   var attValue = Number(feature.properties[attribute]);
-  console.log(calcPropRadius(attValue));
+  //console.log(calcPropRadius(attValue));
   function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
     var scaleFactor = 0.3;
@@ -173,7 +187,7 @@ function pointLayer(feature, latlng) {
     var area = attValue * scaleFactor;
     //radius calculated based on area
     var radius = Math.sqrt(area/Math.PI);
-    console.log(radius);
+    //console.log(radius);
     return radius;
   };
         return new L.CircleMarker(latlng, {

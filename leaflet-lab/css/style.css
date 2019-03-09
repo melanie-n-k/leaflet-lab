@@ -1,26 +1,24 @@
 /* stylesheet by mkohls */
 /* leaflet map */
 
-#map { height: 700px; }
+#map { height: 600px; }
 
 .leaflet-popup-content p {
     width: 200px;
 }
 
-#panel {
-  position: relative;
-    width: 40%;
+.sequence-control-container {
+    width: 350px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.8);
     padding: 10px;
-    left: 200px;
-    display: inline-block;
-    vertical-align: center;
+    line-height: 45px;
     text-align: center;
+    border: solid gray 1px;
 }
 
 .range-slider {
-  width: 60%;
-  vertical-align: center;
-  text-align: center;
+  width: 200px;
 }
 
 #forward {
