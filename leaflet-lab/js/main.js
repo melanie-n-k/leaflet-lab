@@ -59,7 +59,6 @@ function createSequenceControls(map,attributes){
     return container;
        }
    });
-
    map.addControl(new SequenceControl());
 };
 
