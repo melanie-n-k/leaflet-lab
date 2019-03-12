@@ -11,55 +11,56 @@ function createSequenceControls(map,attributes){
           options: {
               position: 'bottomleft'
           },
-
           onAdd: function (map) {
               // create the control container div with a particular class name
     var container = L.DomUtil.create('div', 'sequence-control-container');
     //create range input element (slider)
           $(container).append('<input class="range-slider" type="range">');
       	//set slider attributes
-      	  $('.range-slider').attr({
-      		max: 6,
-      		min: 0,
-      		value: 0,
-      		step: 1
-      	})
       	//add skip buttons
         $(container).append('<button class="skip" id="reverse">Reverse</button>');
         $(container).append('<button class="skip" id="forward">Skip</button>');
-        //replace button content with images
-        $('#reverse').html('<img src="img/reverse.png">');
-        $('#forward').html('<img src="img/forward.png">');
-  //listener for slider
-  $('.range-slider').on('input', function(){
-    var index = $(this).val();
-    //console.log(index);
-    //update symbols when slider is moved
-    updatePropSymbols(map, attributes[index]);
-});
-    $('.skip').click(function(){
-        //get old index value
-        var index = $('.range-slider').val();
-        //increment or decrement depending on button clicked
-        if ($(this).attr('id') == 'forward'){
-            index++;
-            //if past the last attribute, wrap around to first attribute
-            index = index > 6 ? 0 : index;
-        } else if ($(this).attr('id') == 'reverse'){
-            index--;
-            //if past the first attribute, wrap around to last attribute
-            index = index < 0 ? 6 : index;
-        };
-        //update slider
-        $('.range-slider').val(index);
-		//update symbols when buttons are clicked
-        updatePropSymbols(map, attributes[index]);
-    });
+
     L.DomEvent.disableClickPropagation(container);
     return container;
        }
    });
    map.addControl(new SequenceControl());
+   //replace button content with images
+   $('#reverse').html('<img src="img/reverse.png">');
+   $('#forward').html('<img src="img/forward.png">');
+   $('.range-slider').attr({
+   max: 6,
+   min: 0,
+   value: 0,
+   step: 1
+ });
+ //listener for slider
+ $('.range-slider').on('input', function(){
+   var index = $(this).val();
+   //console.log(index);
+   //update symbols when slider is moved
+   updatePropSymbols(map, attributes[index]);
+});
+   $('.skip').click(function(){
+       //get old index value
+       var index = $('.range-slider').val();
+       //increment or decrement depending on button clicked
+       if ($(this).attr('id') == 'forward'){
+           index++;
+           //if past the last attribute, wrap around to first attribute
+           index = index > 6 ? 0 : index;
+       } else if ($(this).attr('id') == 'reverse'){
+           index--;
+           //if past the first attribute, wrap around to last attribute
+           index = index < 0 ? 6 : index;
+       };
+       //update slider
+       $('.range-slider').val(index);
+   //update symbols when buttons are clicked
+       updatePropSymbols(map, attributes[index]);
+   });
+
 };
 
 //connect proportional symbols to cycling attribute values
@@ -214,7 +215,7 @@ function calcPropRadius(attValue) {
 function createMap(){
     //create the map
     var map = L.map('map', {
-        center: [45, -88],
+        center: [44.8, -89],
         zoom: 7
     });
     //add OSM base tilelayer
