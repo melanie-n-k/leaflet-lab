@@ -1,6 +1,8 @@
 /* stylesheet by mkohls */
 /* leaflet map */
-
+#panel {
+  height: 100px;
+}
 #map { height: 600px; }
 
 .leaflet-popup-content p {
@@ -31,7 +33,7 @@
 
 .legend-control-container {
     width: 200px;
-    height: 35px;
+    height: 300px;
     background-color: rgba(255,255,255,0.8);
     padding: 10px;
     line-height: 45px;
@@ -39,4 +41,7 @@
     border: solid gray 1px;
     font-size: 20px;
     font-family: "Trebuchet MS";
+}
+#temporal-legend {
+
 }

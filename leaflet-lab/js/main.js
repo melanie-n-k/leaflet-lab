@@ -69,10 +69,16 @@ function createLegend(map, attributes){
         options: {
             position: 'bottomright'
         },
-//function that runs when the legend is added to the map 
+//function that runs when the legend is added to the map
         onAdd: function (map) {
             // create the control container with a particular class name
             var container = L.DomUtil.create('div', 'legend-control-container');
+            $(container).append('<div id="temporal-legend">')
+
+            //start attribute legend svg string
+            var svg = document.getElementById("Circle");
+            //add attribute legend svg to container
+            $(container).append(svg);
             //use slider listener from sequence control function
             $('.range-slider').on('input', function(){
               var index = $(this).val();
@@ -85,7 +91,6 @@ function createLegend(map, attributes){
            $('.skip').click(function(){
                //get old index value
                var index = $('.range-slider').val();
-               console.log(index);
                //increment or decrement depending on button clicked
                if ($(this).attr('id') == 'forward'){
                    index++;
@@ -276,7 +281,7 @@ function createMap(){
 
 function controlLayers(map){
     var overlayMaps = {
-    "Population": newLayer,
+    "2017 Municipal Population": newLayer,
     //"Books": featureLayer
   };
   var baseMaps = {
