@@ -63,6 +63,51 @@ function createSequenceControls(map,attributes){
 
 };
 
+//function to create temporal legend
+function createLegend(map, attributes){
+    var LegendControl = L.Control.extend({
+        options: {
+            position: 'bottomright'
+        },
+//function that runs when the legend is added to the map 
+        onAdd: function (map) {
+            // create the control container with a particular class name
+            var container = L.DomUtil.create('div', 'legend-control-container');
+            //use slider listener from sequence control function
+            $('.range-slider').on('input', function(){
+              var index = $(this).val();
+              //update symbols when slider is moved
+              updatePropSymbols(map, attributes[index]);
+              //add text to legend when slider is moved
+              $(container).text(attributes[index]);
+           });
+           //skip button listeners for legend
+           $('.skip').click(function(){
+               //get old index value
+               var index = $('.range-slider').val();
+               console.log(index);
+               //increment or decrement depending on button clicked
+               if ($(this).attr('id') == 'forward'){
+                   index++;
+                   //if past the last attribute, wrap around to first attribute
+                   index = index > 6 ? 0 : index;
+               } else if ($(this).attr('id') == 'reverse'){
+                   index--;
+                   //if past the first attribute, wrap around to last attribute
+                   index = index < 0 ? 6 : index;
+               };
+           //update symbols when buttons are clicked
+               updatePropSymbols(map, attributes[index]);
+               $(container).text(attributes[index]);
+           });
+
+            return container;
+        }
+    });
+
+    map.addControl(new LegendControl());
+};
+
 //connect proportional symbols to cycling attribute values
 function updatePropSymbols(map, attribute){
     map.eachLayer(function(layer){
@@ -146,6 +191,7 @@ function getData(map){
             var attributes = processData(response);
 			createPropSymbols(response, map, attributes);
 			createSequenceControls(map,attributes);
+      createLegend(map, attributes);
 		}
     });
 };

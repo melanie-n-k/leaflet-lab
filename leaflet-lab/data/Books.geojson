@@ -6,13 +6,13 @@
       "properties": {
         "ID": "WI0001",
         "N": "Abbotsford Public Library",
-        "Print_Books_2011": 16070,
-        "Print_Books_2012": 17550,
-        "Print_Books_2013": 18406,
-        "Print_Books_2014": 19892,
-        "Print_Books_2015": 20689,
-        "Print_Books_2016": 20631,
-        "Print_Books_2017": 21595
+        "Print Books 2011": 16070,
+        "Print Books 2012": 17550,
+        "Print Books 2013": 18406,
+        "Print Books 2014": 19892,
+        "Print Books 2015": 20689,
+        "Print Books 2016": 20631,
+        "Print Books 2017": 21595
       },
       "geometry": {
         "type": "Point",
@@ -27,13 +27,13 @@
       "properties": {
         "ID": "WI0002",
         "N": "Adams County Library",
-        "Print_Books_2011": 27616,
-        "Print_Books_2012": 35522,
-        "Print_Books_2013": 35655,
-        "Print_Books_2014": 35836,
-        "Print_Books_2015": 35566,
-        "Print_Books_2016": 35526,
-        "Print_Books_2017": 36083
+        "Print Books 2011": 27616,
+        "Print Books 2012": 35522,
+        "Print Books 2013": 35655,
+        "Print Books 2014": 35836,
+        "Print Books 2015": 35566,
+        "Print Books 2016": 35526,
+        "Print Books 2017": 36083
       },
       "geometry": {
         "type": "Point",
@@ -48,13 +48,13 @@
       "properties": {
         "ID": "WI0003",
         "N": "Albertson Memorial Library",
-        "Print_Books_2011": 17003,
-        "Print_Books_2012": 18073,
-        "Print_Books_2013": 19358,
-        "Print_Books_2014": 19746,
-        "Print_Books_2015": 20486,
-        "Print_Books_2016": 20450,
-        "Print_Books_2017": 20637
+        "Print Books 2011": 17003,
+        "Print Books 2012": 18073,
+        "Print Books 2013": 19358,
+        "Print Books 2014": 19746,
+        "Print Books 2015": 20486,
+        "Print Books 2016": 20450,
+        "Print Books 2017": 20637
       },
       "geometry": {
         "type": "Point",
@@ -69,13 +69,13 @@
       "properties": {
         "ID": "WI0004",
         "N": "Algoma Public Library",
-        "Print_Books_2011": 29960,
-        "Print_Books_2012": 30047,
-        "Print_Books_2013": 30683,
-        "Print_Books_2014": 30914,
-        "Print_Books_2015": 30637,
-        "Print_Books_2016": 27718,
-        "Print_Books_2017": 27957
+        "Print Books 2011": 29960,
+        "Print Books 2012": 30047,
+        "Print Books 2013": 30683,
+        "Print Books 2014": 30914,
+        "Print Books 2015": 30637,
+        "Print Books 2016": 27718,
+        "Print Books 2017": 27957
       },
       "geometry": {
         "type": "Point",
@@ -90,13 +90,13 @@
       "properties": {
         "ID": "WI0005",
         "N": "Alma Public Library",
-        "Print_Books_2011": 10162,
-        "Print_Books_2012": 11184,
-        "Print_Books_2013": 11889,
-        "Print_Books_2014": 10554,
-        "Print_Books_2015": 10729,
-        "Print_Books_2016": 11098,
-        "Print_Books_2017": 11171
+        "Print Books 2011": 10162,
+        "Print Books 2012": 11184,
+        "Print Books 2013": 11889,
+        "Print Books 2014": 10554,
+        "Print Books 2015": 10729,
+        "Print Books 2016": 11098,
+        "Print Books 2017": 11171
       },
       "geometry": {
         "type": "Point",
@@ -111,13 +111,13 @@
       "properties": {
         "ID": "WI0006",
         "N": "Altoona Public Library",
-        "Print_Books_2011": 42343,
-        "Print_Books_2012": 43621,
-        "Print_Books_2013": 45268,
-        "Print_Books_2014": 44044,
-        "Print_Books_2015": 43879,
-        "Print_Books_2016": 39381,
-        "Print_Books_2017": 40883
+        "Print Books 2011": 42343,
+        "Print Books 2012": 43621,
+        "Print Books 2013": 45268,
+        "Print Books 2014": 44044,
+        "Print Books 2015": 43879,
+        "Print Books 2016": 39381,
+        "Print Books 2017": 40883
       },
       "geometry": {
         "type": "Point",
@@ -132,13 +132,13 @@
       "properties": {
         "ID": "WI0007",
         "N": "Amery Public Library",
-        "Print_Books_2011": 52489,
-        "Print_Books_2012": 54474,
-        "Print_Books_2013": 52344,
-        "Print_Books_2014": 46630,
-        "Print_Books_2015": 43044,
-        "Print_Books_2016": 38582,
-        "Print_Books_2017": 35234
+        "Print Books 2011": 52489,
+        "Print Books 2012": 54474,
+        "Print Books 2013": 52344,
+        "Print Books 2014": 46630,
+        "Print Books 2015": 43044,
+        "Print Books 2016": 38582,
+        "Print Books 2017": 35234
       },
       "geometry": {
         "type": "Point",
@@ -153,13 +153,13 @@
       "properties": {
         "ID": "WI0008",
         "N": "Lettie W. Jensen Public Library",
-        "Print_Books_2011": 14376,
-        "Print_Books_2012": 14853,
-        "Print_Books_2013": 14412,
-        "Print_Books_2014": 13172,
-        "Print_Books_2015": 13102,
-        "Print_Books_2016": 13091,
-        "Print_Books_2017": 13319
+        "Print Books 2011": 14376,
+        "Print Books 2012": 14853,
+        "Print Books 2013": 14412,
+        "Print Books 2014": 13172,
+        "Print Books 2015": 13102,
+        "Print Books 2016": 13091,
+        "Print Books 2017": 13319
       },
       "geometry": {
         "type": "Point",
@@ -174,13 +174,13 @@
       "properties": {
         "ID": "WI0009",
         "N": "Antigo Public Library",
-        "Print_Books_2011": 57605,
-        "Print_Books_2012": 55823,
-        "Print_Books_2013": 53111,
-        "Print_Books_2014": 51793,
-        "Print_Books_2015": 48793,
-        "Print_Books_2016": 47399,
-        "Print_Books_2017": 47728
+        "Print Books 2011": 57605,
+        "Print Books 2012": 55823,
+        "Print Books 2013": 53111,
+        "Print Books 2014": 51793,
+        "Print Books 2015": 48793,
+        "Print Books 2016": 47399,
+        "Print Books 2017": 47728
       },
       "geometry": {
         "type": "Point",
@@ -195,13 +195,13 @@
       "properties": {
         "ID": "WI0010",
         "N": "Appleton Public Library",
-        "Print_Books_2011": 270268,
-        "Print_Books_2012": 260637,
-        "Print_Books_2013": 261428,
-        "Print_Books_2014": 263551,
-        "Print_Books_2015": 273235,
-        "Print_Books_2016": 267646,
-        "Print_Books_2017": 256938
+        "Print Books 2011": 270268,
+        "Print Books 2012": 260637,
+        "Print Books 2013": 261428,
+        "Print Books 2014": 263551,
+        "Print Books 2015": 273235,
+        "Print Books 2016": 267646,
+        "Print Books 2017": 256938
       },
       "geometry": {
         "type": "Point",
@@ -216,13 +216,13 @@
       "properties": {
         "ID": "WI0011",
         "N": "Arcadia Free Public Library",
-        "Print_Books_2011": 16451,
-        "Print_Books_2012": 16947,
-        "Print_Books_2013": 17582,
-        "Print_Books_2014": 18057,
-        "Print_Books_2015": 18035,
-        "Print_Books_2016": 18365,
-        "Print_Books_2017": 18724
+        "Print Books 2011": 16451,
+        "Print Books 2012": 16947,
+        "Print Books 2013": 17582,
+        "Print Books 2014": 18057,
+        "Print Books 2015": 18035,
+        "Print Books 2016": 18365,
+        "Print Books 2017": 18724
       },
       "geometry": {
         "type": "Point",
@@ -237,13 +237,13 @@
       "properties": {
         "ID": "WI0012",
         "N": "Argyle Public Library",
-        "Print_Books_2011": 4640,
-        "Print_Books_2012": 5050,
-        "Print_Books_2013": 5098,
-        "Print_Books_2014": 5167,
-        "Print_Books_2015": 5185,
-        "Print_Books_2016": 5051,
-        "Print_Books_2017": 4751
+        "Print Books 2011": 4640,
+        "Print Books 2012": 5050,
+        "Print Books 2013": 5098,
+        "Print Books 2014": 5167,
+        "Print Books 2015": 5185,
+        "Print Books 2016": 5051,
+        "Print Books 2017": 4751
       },
       "geometry": {
         "type": "Point",
@@ -258,13 +258,13 @@
       "properties": {
         "ID": "WI0013",
         "N": "Lester Public Library of Arpin",
-        "Print_Books_2011": 12741,
-        "Print_Books_2012": 13180,
-        "Print_Books_2013": 9074,
-        "Print_Books_2014": 9888,
-        "Print_Books_2015": 10755,
-        "Print_Books_2016": 11512,
-        "Print_Books_2017": 12520
+        "Print Books 2011": 12741,
+        "Print Books 2012": 13180,
+        "Print Books 2013": 9074,
+        "Print Books 2014": 9888,
+        "Print Books 2015": 10755,
+        "Print Books 2016": 11512,
+        "Print Books 2017": 12520
       },
       "geometry": {
         "type": "Point",
@@ -279,13 +279,13 @@
       "properties": {
         "ID": "WI0014",
         "N": "Vaughn Public Library",
-        "Print_Books_2011": 37454,
-        "Print_Books_2012": 37582,
-        "Print_Books_2013": 37171,
-        "Print_Books_2014": 37183,
-        "Print_Books_2015": 37536,
-        "Print_Books_2016": 36239,
-        "Print_Books_2017": 36006
+        "Print Books 2011": 37454,
+        "Print Books 2012": 37582,
+        "Print Books 2013": 37171,
+        "Print Books 2014": 37183,
+        "Print Books 2015": 37536,
+        "Print Books 2016": 36239,
+        "Print Books 2017": 36006
       },
       "geometry": {
         "type": "Point",
@@ -300,13 +300,13 @@
       "properties": {
         "ID": "WI0015",
         "N": "Augusta Memorial Public Library",
-        "Print_Books_2011": 11976,
-        "Print_Books_2012": 11837,
-        "Print_Books_2013": 11845,
-        "Print_Books_2014": 11304,
-        "Print_Books_2015": 11123,
-        "Print_Books_2016": 11514,
-        "Print_Books_2017": 11388
+        "Print Books 2011": 11976,
+        "Print Books 2012": 11837,
+        "Print Books 2013": 11845,
+        "Print Books 2014": 11304,
+        "Print Books 2015": 11123,
+        "Print Books 2016": 11514,
+        "Print Books 2017": 11388
       },
       "geometry": {
         "type": "Point",
