@@ -72,67 +72,10 @@ function createLegend(map, attributes){
         onAdd: function (map) {
             // create the control container with a particular class name
             var container = L.DomUtil.create('div', 'legend-control-container');
-            $(container).append('<div id="temporal-legend">')
+            $(container).text("Legend");
+            $(container).append('<div id="box"></div>');
+            $('#box').html('<img src="img/legend.png">');
 
-            //start attribute legend svg string
-            var svg = '<svg id="attribute-legend" width="200px" height="200px">';
-            //array of circle names to base loop on
-            var circles = ["max", "mean", "min"];
-
-            //Step 2: loop to add each circle and text to svg string
-            for (var i=0; i<circles.length; i++){
-                //circle string
-                svg += '<circle class="legend-circle" id="' + circles[i] +
-                '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="90"/>';
-            };
-
-            //close svg string
-            svg += "</svg>";
-            //add attribute legend svg to container
-            $(container).append(svg);
-            //Calculate the max, mean, and min values for a given attribute
-            function getCircleValues(map, attribute){
-                //start with min at highest possible and max at lowest possible number
-                var min = Infinity,
-                    max = -Infinity;
-                map.eachLayer(function(layer){
-                    //get the attribute value
-                    if (layer.feature){
-                        var attributeValue = Number(layer.feature.properties[attribute]);
-                        console.log(attributeValue);
-                        //test for min
-                        if (attributeValue < min){
-                            min = attributeValue;
-                        };
-                        //test for max
-                        if (attributeValue > max){
-                            max = attributeValue;
-                        };
-                    };
-                });
-
-                //set mean
-                var mean = (max + min) / 2;
-
-                //return values as an object
-                return {
-                    max: max,
-                    mean: mean,
-                    min: min
-                };
-            };
-            //get the max, mean, and min values as an object
-            var circleValues = getCircleValues(map, attribute);
-                    for (var key in circleValues){
-            //get the radius
-            var radius = calcPropRadius(circleValues[key]);
-
-            //Step 3: assign the cy and r attributes
-            $('#'+key).attr({
-                cy: 179 - radius,
-                r: radius
-            });
-        };
             //use slider listener from sequence control function
             $('.range-slider').on('input', function(){
               var index = $(this).val();
@@ -140,6 +83,8 @@ function createLegend(map, attributes){
               updatePropSymbols(map, attributes[index]);
               //add text to legend when slider is moved
               $(container).text(attributes[index]);
+              $(container).append('<div id="box"></div>');
+              $('#box').html('<img src="img/legend.png">');
            });
            //skip button listeners for legend
            $('.skip').click(function(){
@@ -158,7 +103,8 @@ function createLegend(map, attributes){
            //update symbols when buttons are clicked
                updatePropSymbols(map, attributes[index]);
                $(container).text(attributes[index]);
-               $(container).append(svg);
+               $(container).append('<div id="box"></div>');
+               $('#box').html('<img src="img/legend.png">');
 
            });
 
@@ -181,8 +127,11 @@ function updatePropSymbols(map, attribute){
             //add city to popup content string
             var popupContent = "<p><b>" + props.N + ": </b></p>";
             //add formatted attribute to content string
-            var year = attribute.split("_")[2];
-            popupContent += "<p><b>" + props[attribute] + "</b> print books in " + year + "</p>";
+            var year = attribute.split(" ");
+            console.log(year);
+            var year0 = year[2];
+            console.log(year0);
+            popupContent += "<p><b>" + props[attribute] + "</b> print books in " + year0 + "</p>";
             //replace the layer popup
             layer.bindPopup(popupContent, {
                 offset: new L.Point(0,-radius)
@@ -194,6 +143,7 @@ function updatePropSymbols(map, attribute){
 //create and style the proportional symbols
 function pointToLayer(feature, latlng, attributes){
 	var attribute = attributes[0];
+  console.log(attribute);
 	var geojsonMarkerOptions = {
 		radius: 8, //initial radius before calculations
 		fillColor: "#FA7268",
@@ -231,6 +181,7 @@ function processData(data){
         };
     };
     return attributes;
+    //console.log(attributes);
 };
 
 //adjust the symbols for each data point to reflect its value using the calcPropRadius function results
@@ -250,6 +201,7 @@ function getData(map){
         success: function(response){
 			//create an attributes array
             var attributes = processData(response);
+            //console.log(attributes);
 			createPropSymbols(response, map, attributes);
 			createSequenceControls(map,attributes);
       createLegend(map, attributes);

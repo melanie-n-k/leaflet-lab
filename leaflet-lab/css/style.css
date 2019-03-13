@@ -50,8 +50,19 @@ h1 {
 }
 
 .legend-control-container {
-    width: 200px;
-    height: 300px;
+    width: 350px;
+    height: 230px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 10px;
+    line-height: 45px;
+    text-align: center;
+    border: solid gray 1px;
+    font-size: 20px;
+    font-family: "Trebuchet MS";
+}
+#box {
+    width: 330px;
+    height: 170px;
     background-color: rgba(255,255,255,0.8);
     padding: 10px;
     line-height: 45px;
