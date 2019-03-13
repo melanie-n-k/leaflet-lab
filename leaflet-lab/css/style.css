@@ -1,9 +1,24 @@
 /* stylesheet by mkohls */
 /* leaflet map */
 #panel {
-  height: 100px;
+  height: 200px;
+  font-size: 18px;
+  font-family: "Trebuchet MS";
+  background-color: #9DD4D4;
+  text-align: center;
+      border: solid gray 4px;
 }
-#map { height: 600px; }
+h1 {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+#map { height: 650px; }
 
 .leaflet-popup-content p {
     width: 200px;
@@ -42,6 +57,11 @@
     font-size: 20px;
     font-family: "Trebuchet MS";
 }
-#temporal-legend {
-
+#bottom {
+  height: 50px;
+  font-size: 12px;
+  font-family: "Trebuchet MS";
+  background-color: #9DD4D4;
+  text-align: center;
+      border: solid gray 4px;
 }

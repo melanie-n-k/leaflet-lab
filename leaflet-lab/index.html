@@ -17,12 +17,21 @@
 	<body>
 		<!--put your initial page content here-->
 		    <div id="panel">
-									<p> Hey this is text </p>
+					<h1> Print Books in Wisconsin Libraries, 2011-2017 </h1>
+					<p> Are print books going by the wayside as electronic readers, audiobooks, and podcasts become more popular? <br>
+						This map samples 15 libraries around Wisconsin to examine how many print books they've carried over the past 7 years. <br>
+						Use the slider and skip buttons to go forward or backward in time. <br>
+						Click on a circle to see which library it represents, and how many print books that library carried in a given year.
+					  The legend in the lower right lets you know which year you're currently looking at, and gives you an idea as to what the size of the circles mean.
+				    <br> How big are the communities these libraries serve?  Toggle population data on and off using the controls in the top right. </p>
 				</div>
         <div id = "map"> </div>
-				<svg id="Circle" width="180px" height="180px">
+				<div id = "bottom">
+					<p> Data sourced from https://dpi.wi.gov/pld/data-reports/service-data. <br> Map by Melanie Kohls, ©2019. 
+				</div>
+	<!-- <svg id="Circle" width="180px" height="180px">
 		<circle fill="#FA7268" fill-opacity="0.75" stroke="#FA7268" stroke-miterlimit="10" cx="90" cy="90.001" r="89.5"/>
-				</svg>
+	</svg> -->
 		<!--put your external script links here-->
 		<script type="text/javascript" src="lib/leaflet-src.js"></script>
     <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
