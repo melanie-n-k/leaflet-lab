@@ -6,7 +6,7 @@
   font-family: "Trebuchet MS";
   background-color: #9DD4D4;
   text-align: center;
-      border: solid gray 4px;
+  border: solid gray 3px;
 }
 h1 {
     display: block;
@@ -18,7 +18,10 @@ h1 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-#map { height: 650px; }
+#map { height: 650px;
+       border-left: solid gray 3px;
+       border-right: solid gray 3px;
+}
 
 .leaflet-popup-content p {
     width: 200px;
@@ -63,5 +66,5 @@ h1 {
   font-family: "Trebuchet MS";
   background-color: #9DD4D4;
   text-align: center;
-      border: solid gray 4px;
+  border: solid gray 3px;
 }
